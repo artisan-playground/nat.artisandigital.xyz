@@ -14,11 +14,13 @@ jobs:
       - name: Build
         run: |
           mkdir build
-          echo "artisandigital.xyz" > build/index.html
+          echo "artisandigital.xyz" > build/index.html          
+          # cd frontend
+          # yarn
+          # yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-#           cname: artisandigital.xyz
-  
+          publish_dir: ./frontend/build
+          cname: ${{ secrets.CNAME }}
